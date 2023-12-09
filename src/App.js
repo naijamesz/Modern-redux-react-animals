@@ -1,7 +1,10 @@
+import './App.css';
 import { useState } from 'react';
 import AnimalShow from './AnimalShow';
 
 function getRandomAnimal() {
+  //    animals = [ index0,index1,index2,index3,index4,index5,index6]
+  //    animals = [ index0,index1,index2,...index6] ... is spread operator index4-5
   const animals = ['bird', 'cat', 'cow', 'dog', 'gator', 'horse'];
 
   return animals[Math.floor(Math.random() * animals.length)];
@@ -19,11 +22,10 @@ export default function App() {
   });
 
   return (
-    <div>
+    <div className='app'>
       <button onClick={handleClick}>Add Animal</button>
       <button onClick={() => setAnimals([])}>Clear</button>
-
-      <div>{renderedAnimals}</div>
+      <div className='animal-list'>{renderedAnimals}</div>
     </div>
   );
 }
