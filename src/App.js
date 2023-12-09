@@ -1,18 +1,25 @@
 import { useState } from 'react';
 
+function getRandomAnimal() {
+  const animals = ['bird', 'cat', 'cow', 'dog', 'gator', 'horse'];
+  return animals[Math.floor(Math.random() * animals.length)];
+}
+
 export default function App() {
-  const [count, setCount] = useState(0);
+  const [animals, setAnimals] = useState([]);
   const handleClick = () => {
-    setCount(count + 1);
-    console.log('Button was clicked!');
+    setAnimals([...animals, getRandomAnimal()]);
   };
+  // const [count, setCount] = useState(0);
+  // const handleClick2 = () => {
+  //   setCount(count + 1);
+  //   console.log('Button was clicked!');
+  // };
   return (
     <div>
       <button onClick={handleClick}>Add Animal</button>
-      {/* <button onClick={handleClick()}>Bad Event Handler</button> */}
-      <button onClick={() => setCount(count ? count - 1 : count >= 0)}>Remove Animal</button>
-      <button onClick={() => setCount(count * 0)}>Reset</button>
-      <div>Number of animals: {count}</div>
+
+      <div>Number of animals: {animals}</div>
     </div>
   );
 }
