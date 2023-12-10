@@ -21,10 +21,15 @@ export default function App() {
     return <AnimalShow type={animal} key={index} />;
   });
 
+  const handleClear = () => {
+    return setAnimals([]);
+  };
+
   return (
     <div className='app'>
       <button onClick={handleClick}>Add Animal</button>
       <button onClick={() => setAnimals([])}>Clear</button>
+      <button onClick={handleClear}>Clear</button>
       <div className='animal-list'>{renderedAnimals}</div>
     </div>
   );
